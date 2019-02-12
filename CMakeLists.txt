@@ -31,8 +31,12 @@ SET( SOURCES
   PickHandler.cpp
   QtOSG.cpp
 )
-
-ADD_EXECUTABLE( qtosg ${SOURCES} )
+SET ( HEADER
+MainWindow.h
+OSGWidget.h
+PickHandler.h
+)
+ADD_EXECUTABLE( qtosg ${SOURCES} ${HEADER} )
 
 IF( WITH_PICK_HANDLER )
   MESSAGE( STATUS "Building with pick handler support" )
