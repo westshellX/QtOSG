@@ -11,6 +11,7 @@
 #include <osg/StateSet>
 
 #include <osgDB/WriteFile>
+#include <osgDB/ReadFile>
 
 #include <osgGA/EventQueue>
 #include <osgGA/TrackballManipulator>
@@ -127,7 +128,7 @@ OSGWidget::OSGWidget( QWidget* parent,
 
   osgViewer::View* view = new osgViewer::View;
   view->setCamera( camera );
-  view->setSceneData( geode );
+  view->setSceneData(osgDB::readNodeFile("cow.osg"));// geode);
   view->addEventHandler( new osgViewer::StatsHandler );
 #ifdef WITH_PICK_HANDLER
   view->addEventHandler( new PickHandler( this->devicePixelRatio() ) );
